@@ -18,7 +18,7 @@ public class Schema implements StreamableDdl {
 
   @Override
   public Stream<String> streamDdl() {
-    return null;
+    return database.streamDdl();
   }
 }
 

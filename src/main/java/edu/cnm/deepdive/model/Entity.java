@@ -2,6 +2,7 @@ package edu.cnm.deepdive.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -12,14 +13,14 @@ public class Entity implements StreamableDdl {
 
   @Expose
   @SerializedName("tableName")
-  String name;
+  private String name;
 
   @Expose
   @SerializedName("createSql")
-  String ddl;
+  private String ddl;
 
   @Expose
-  List<Index> indices;
+  private List<Index> indices = new LinkedList<>();
 
   public String getName() {
     return name;
@@ -55,6 +56,6 @@ public class Entity implements StreamableDdl {
                 .stream()
                 .map(Index::getDdl)
         )
-        .map((sql) ->sql.replace(PLACEHOLDER, name));
+        .map((sql) -> sql.replace(PLACEHOLDER, name));
   }
 }

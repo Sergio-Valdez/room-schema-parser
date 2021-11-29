@@ -2,6 +2,7 @@ package edu.cnm.deepdive.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -18,7 +19,7 @@ public class View implements StreamableDdl {
   private String ddl;
 
   @Expose
-  private List<Index> indices;
+  private List<Index> indices = new LinkedList<>();
 
   public String getName() {
     return name;
